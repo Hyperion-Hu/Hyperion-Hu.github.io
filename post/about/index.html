@@ -9,10 +9,16 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-<link rel="shortcut icon" href="http://localhost:4000/favicon.ico?v=1573980239501">
+<link rel="shortcut icon" href="https://hyperion-hu.github.io//favicon.ico?v=1573999564741">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
-<link rel="stylesheet" href="http://localhost:4000/styles/main.css">
+<link rel="stylesheet" href="https://hyperion-hu.github.io//styles/main.css">
 
+
+  
+
+  
+    <link rel="stylesheet" href="https://unpkg.com/disqusjs@1.1/dist/disqusjs.css" />
+  
 
 
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
@@ -20,6 +26,15 @@
 
 <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-148911447-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-148911447-1');
+</script>
 
 
   </head>
@@ -29,8 +44,8 @@
       <div class="sidebar" :class="{ 'full-height': menuVisible }">
   <div class="top-container" data-aos="fade-right">
     <div class="top-header-container">
-      <a class="site-title-container" href="http://localhost:4000">
-        <img src="http://localhost:4000/images/avatar.png?v=1573980239501" class="site-logo">
+      <a class="site-title-container" href="https://hyperion-hu.github.io/">
+        <img src="https://hyperion-hu.github.io//images/avatar.png?v=1573999564741" class="site-logo">
         <h1 class="site-title">Hyperion&#39;s Blog</h1>
       </a>
       <div class="menu-btn" @click="menuVisible = !menuVisible">
@@ -40,25 +55,25 @@
     <div>
       
         
-          <a href="http://localhost:4000/" class="site-nav">
+          <a href="/" class="site-nav">
             首页
           </a>
         
       
         
-          <a href="http://localhost:4000/archives" class="site-nav">
+          <a href="/archives" class="site-nav">
             归档
           </a>
         
       
         
-          <a href="http://localhost:4000/tags" class="site-nav">
+          <a href="/tags" class="site-nav">
             标签
           </a>
         
       
         
-          <a href="http://localhost:4000/post/about" class="site-nav">
+          <a href="/post/about" class="site-nav">
             关于
           </a>
         
@@ -88,7 +103,7 @@
     </div>
     <div class="site-footer">
       &copy; 2019 Hyperion | <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" title="知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议" target="_blank"><img alt="CC" style="border-width:0" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg" height="12px" /><img alt="BY" style="border-width:0" src="https://mirrors.creativecommons.org/presskit/icons/by.svg" height="12px" /><img alt="NC" style="border-width:0" src="https://mirrors.creativecommons.org/presskit/icons/nc-jp.svg" height="12px" /><img alt="SA" style="border-width:0" src="https://mirrors.creativecommons.org/presskit/icons/sa.svg" height="12px" /></a><br />
-ICP 备吧啦吧啦号 | <a class="rss" href="http://localhost:4000/atom.xml" target="_blank">RSS</a>
+ICP 备吧啦吧啦号 | <a class="rss" href="https://hyperion-hu.github.io//atom.xml" target="_blank">RSS</a>
     </div>
   </div>
 </div>
@@ -126,6 +141,12 @@ Released under the <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/de
             
 
             
+              
+
+              
+                <div id="disqus_thread" data-aos="fade-in"></div>
+              
+            
 
           </div>
 
@@ -149,6 +170,26 @@ var app = new Vue({
 })
 
 </script>
+
+
+
+  
+
+  
+    <script src="https://unpkg.com/disqusjs@1.1/dist/disqus.js"></script>
+    <script>
+
+    var options = {
+      shortname: 'hyperion-hu',
+      apikey: 'B60Z7V8fi8rMWS3h7GSJK6eU7JVXPoSTKh5kEFTLhznNzcRgTrq6pu6xI5NSwB9X',
+    }
+    if ('https://disqus.skk.moe/disqus/') {
+      options.api = 'https://disqus.skk.moe/disqus/'
+    }
+    var dsqjs = new DisqusJS(options)
+
+    </script>
+  
 
 
 
