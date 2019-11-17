@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>http://localhost:4000</id>
+    <title>Hyperion&apos;s Blog</title>
+    <updated>2019-11-17T08:44:03.731Z</updated>
+    <generator>https://github.com/jpmonette/feed</generator>
+    <link rel="alternate" href="http://localhost:4000"/>
+    <link rel="self" href="http://localhost:4000/atom.xml"/>
+    <subtitle>&lt;b&gt;探索&lt;/b&gt;未知</subtitle>
+    <logo>http://localhost:4000/images/avatar.png</logo>
+    <icon>http://localhost:4000/favicon.ico</icon>
+    <rights>All rights reserved 2019, Hyperion&apos;s Blog</rights>
+    <entry>
+        <title type="html"><![CDATA[起源]]></title>
+        <id>http://localhost:4000/post/起源</id>
+        <link href="http://localhost:4000/post/起源">
+        </link>
+        <updated>2019-09-28T13:00:00.000Z</updated>
+        <content type="html"><![CDATA[<p>尝试使用 <a href="https://gridea.dev/">Gridea</a> 创作。这是一篇测试博客。<br>
+此网页托管于 <a href="https://pages.github.com/">GitHub Pages</a>，评论系统引用了 <a href="https://disqus.com/">DISQUS</a>。<br>
+<strong><a href="/post/about/">关于此站</a></strong></p>
+]]></content>
+    </entry>
+</feed>
