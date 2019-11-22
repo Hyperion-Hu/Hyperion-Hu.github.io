@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://hyperion-hu.github.io/</id>
     <title>Hyperion&apos;s Blog</title>
-    <updated>2019-11-17T14:36:18.719Z</updated>
+    <updated>2019-11-22T08:08:34.112Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://hyperion-hu.github.io/"/>
     <link rel="self" href="https://hyperion-hu.github.io//atom.xml"/>
@@ -10,6 +10,348 @@
     <logo>https://hyperion-hu.github.io//images/avatar.png</logo>
     <icon>https://hyperion-hu.github.io//favicon.ico</icon>
     <rights>All rights reserved 2019, Hyperion&apos;s Blog</rights>
+    <entry>
+        <title type="html"><![CDATA[学习笔记 - CSS 选择器]]></title>
+        <id>https://hyperion-hu.github.io//post/学习笔记 - CSS 选择器</id>
+        <link href="https://hyperion-hu.github.io//post/学习笔记 - CSS 选择器">
+        </link>
+        <updated>2019-11-22T07:55:55.000Z</updated>
+        <content type="html"><![CDATA[<h2 id="css-语法">CSS 语法</h2>
+<p>CSS 语法由<code>选择器</code>和<strong>一条或多条</strong><code>属性声明</code>构成。</p>
+<pre><code class="language-css">选择器 {
+    样式属性: 属性值;
+    样式属性: 属性值;
+    ...
+    样式属性: 属性值;
+}
+</code></pre>
+<p>以下部分的文档总结了一些 <code>选择器</code> 部分的用法。</p>
+<h2 id="css-选择器">CSS 选择器</h2>
+<h3 id="元素类型选择器">元素/类型选择器</h3>
+<p>选择指定元素名称的所有元素。</p>
+<blockquote>
+<p>用法：<code>A</code></p>
+</blockquote>
+<p>类型选择器匹配文档语言元素类型的名称。类型选择器匹配文档树中该元素类型的每一个实例。</p>
+<p>选择类型<code>A</code>的所有元素。类型是<strong>标签</strong>的类型，因此 <code>&lt;div&gt;</code>，<code>&lt;p&gt;</code> 和<code>&lt;ul&gt;</code>都是不同的元素类型。</p>
+<p>例如：</p>
+<ul>
+<li><code>p</code> 选择所有的 <code>&lt;p&gt;</code> 元素</li>
+<li><code>div</code> 选择所有的 <code>&lt;div&gt;</code> 元素</li>
+</ul>
+<h3 id="id-选择器">ID 选择器</h3>
+<p>选择具有特定<code>id</code>的元素。</p>
+<blockquote>
+<p>用法：<code>#id</code></p>
+</blockquote>
+<p>我们也可以将 <strong>ID 选择器</strong>与<strong>类型选择器</strong>结合使用。</p>
+<p>例如：</p>
+<ul>
+<li><code>ul#long</code> 选择 <code>&lt;ul id=&quot;long&quot;&gt;</code></li>
+</ul>
+<h3 id="后代选择器">后代选择器</h3>
+<p>选择元素内部的元素。</p>
+<blockquote>
+<p>用法：<code>A B</code></p>
+</blockquote>
+<p>在 <code>A</code> 中选择所有的 <code>B</code> 。 <code>B</code> 在另一个元素之内，所以它叫做后代元素。</p>
+<p>例如：</p>
+<ul>
+<li><code>p strong</code> 选择所有在 <code>&lt;p&gt;</code> 里的任意 <code>&lt;strong&gt;</code> 元素。</li>
+</ul>
+<h4 id="后代与-id-选择器搭配使用">后代与 ID 选择器搭配使用</h4>
+<p>将后代选择器与 ID 选择器结合使用。</p>
+<blockquote>
+<p>用法：<code>#id A</code></p>
+</blockquote>
+<p>例如：</p>
+<ul>
+<li><code>#fancy span</code> 选择任何有带 <code>id=&quot;fancy&quot;</code> 的元素的后代中的 <code>&lt;span&gt;</code> 元素。</li>
+<li><code>#cool span</code> 选择任何有带 <code>id=&quot;cool&quot;</code> 的元素的后代中的 <code>&lt;span&gt;</code> 元素。</li>
+</ul>
+<h3 id="类选择器">类选择器</h3>
+<p>选择带有指定类 (class) 的元素。</p>
+<blockquote>
+<p>用法：<code>.类名</code></p>
+</blockquote>
+<p>类选择器选择具有该类属性的所有元素。<strong>元素只能有一个 ID，但可以有多个类。</strong></p>
+<p>例如：</p>
+<ul>
+<li><code>.neato</code> 选择<strong>所有</strong>带有 <code>class=&quot;neato&quot;</code> 的元素。</li>
+</ul>
+<h4 id="类选择器的搭配使用">类选择器的搭配使用</h4>
+<p>我们可以将类选择器与其他选择器（例如类型选择器）组合在一起使用。</p>
+<p>例如：</p>
+<ul>
+<li>
+<p><code>ul.important</code> 选择所有带有 <code>class=&quot;important&quot;</code> 的 <code>&lt;ul&gt;</code> 元素。</p>
+</li>
+<li>
+<p><code>#big.wide</code> 选择所有带有 <code>id=&quot;big&quot;</code> 和 <code>class=&quot;wide&quot;</code> 的元素。</p>
+</li>
+</ul>
+<h3 id="选择器组合">选择器组合</h3>
+<p>同时选取多个元素。</p>
+<blockquote>
+<p>用法： <code>A, B</code></p>
+</blockquote>
+<p>这将选择所有 <code>A</code> 和 <code>B</code> 元素。我们可以通过这种方式组合任何选择器，并且可以指定两个以上。</p>
+<p>例如：</p>
+<ul>
+<li>
+<p><code>p, .fun</code> 选择所有 <code>&lt;p&gt;</code> 元素以及所有带有 <code>class=&quot;fun&quot;</code> 的元素。</p>
+</li>
+<li>
+<p><code>a, p, div</code> 选择所有 <code>&lt;a&gt;</code>, <code>&lt;p&gt;</code> 和 <code>&lt;div&gt;</code> 元素。</p>
+</li>
+</ul>
+<h3 id="通配选择器">通配选择器</h3>
+<p>选择所有元素。</p>
+<blockquote>
+<p>用法：<code>*</code></p>
+</blockquote>
+<p>我们可以使用通用选择器选择所有元素。</p>
+<p>例如：</p>
+<ul>
+<li><code>p *</code> 选择在所有 <code>&lt;p&gt;</code> 元素之内的任何元素。</li>
+</ul>
+<h4 id="通配选择器的搭配使用">通配选择器的搭配使用</h4>
+<p>选择另一个元素中的所有元素。</p>
+<blockquote>
+<p>用法：<code>A *</code></p>
+</blockquote>
+<p>这会选择所有 <code>A</code> 中的每个元素。</p>
+<p>例如：</p>
+<ul>
+<li>
+<p><code>p *</code> 会选择所有 <code>&lt;p&gt;</code> 标签中的每个元素。</p>
+</li>
+<li>
+<p><code>ul.fancy *</code> 选择所有 <code>&lt;ul class=&quot;fancy&quot;&gt;</code> 元素内的每个元素。</p>
+</li>
+</ul>
+<h3 id="兄弟选择器">兄弟选择器</h3>
+<h4 id="相邻兄弟选择器">相邻兄弟选择器</h4>
+<p>选择第一个指定的元素之后（不是内部）紧跟的元素。</p>
+<blockquote>
+<p>用法：<code>A + B</code></p>
+</blockquote>
+<p>这将选择跟在 <code>A</code> 之后的全部 <code>B</code> 元素。 彼此相邻的元素称为兄弟元素，它们处于相同的等级或层级。</p>
+<p>例如：</p>
+<ul>
+<li><code>p + .intro</code> 选择每个跟在 <code>&lt;p&gt;</code> 之后的带有 <code>class=&quot;intro&quot;</code> 的元素。</li>
+<li><code>div + a</code> 选择每个跟在 <code>&lt;div&gt;</code> 之后的 <code>&lt;a&gt;</code> 元素。</li>
+</ul>
+<h4 id="全体兄弟选择器">全体兄弟选择器</h4>
+<p>选择所有在指定的元素之后（不是内部）紧跟的元素。</p>
+<blockquote>
+<p>用法：<code>A ~ B</code></p>
+</blockquote>
+<p>这可以选择一个元素后面的所有同级元素（兄弟元素）。就像相邻选择器 <code>A + B</code> 一样，只是它获取后面的所有元素而不是一个。</p>
+<p>例如：</p>
+<ul>
+<li><code>A ~ B</code> 选择跟在 <code>A</code> 后面的所有 <code>B</code> 元素。</li>
+</ul>
+<h3 id="子元素选择器">子元素选择器</h3>
+<p>选择带有特定父元素的元素。</p>
+<blockquote>
+<p>用法：<code>A &gt; B</code></p>
+</blockquote>
+<p>这可以选择一个元素的所有直接子元素。子元素是直接嵌套在另一个元素中的任意元素，比其嵌套更深的元素称为后代元素。</p>
+<p>比其嵌套更深的元素称为后代元素。</p>
+<p>例如：</p>
+<ul>
+<li><code>A &gt; B</code> 在 <code>A</code> 元素的所有直接子元素中选出所有 <code>B</code> 元素。</li>
+</ul>
+<h3 id="伪类选择器">伪类选择器</h3>
+<h4 id="第一子元素伪类选择器">第一子元素伪类选择器</h4>
+<p>选取属于其父元素的首个子元素。</p>
+<blockquote>
+<p>用法：<code>:first-child</code></p>
+</blockquote>
+<p>这可以选择一个元素内的第一个子元素。子元素是直接嵌套在另一个元素中的任意元素，我们可以将此伪选择器与其他选择器结合使用。</p>
+<p>例如：</p>
+<ul>
+<li><code>:first-child</code> 选择所有的第一子元素。</li>
+<li><code>p:first-child</code> 选择所有 <code>&lt;p&gt;</code> 元素的第一子元素。</li>
+<li><code>div p:first-child</code> 选择在 <code>&lt;div&gt;</code> 内的所有 <code>&lt;p&gt;</code> 元素的第一子元素。</li>
+</ul>
+<h4 id="唯一子元素伪类选择器">唯一子元素伪类选择器</h4>
+<p>选择属于其父元素的唯一子元素的每个元素。</p>
+<blockquote>
+<p>用法：<code>:only-child</code></p>
+</blockquote>
+<p>例如：</p>
+<ul>
+<li><code>span:only-child</code> 选择一个 <code>&lt;span&gt;</code> 元素，该元素是其父元素中唯一的元素。</li>
+<li><code>ul li:only-child</code> 选择一个 <code>&lt;li&gt;</code> 元素，其父元素为 <code>&lt;ul&gt;</code> 该元素是其父元素中唯一的元素。</li>
+</ul>
+<h4 id="最后子元素伪类选择器">最后子元素伪类选择器</h4>
+<p>选择属于其父元素的最后一个子元素的每个元素。</p>
+<blockquote>
+<p>用法：<code>:last-child</code></p>
+</blockquote>
+<p><strong>Pro Tip</strong> →  如果只有一个元素，则该元素将同时计为第一子元素，唯一子元素和最后子元素。</p>
+<p>例如：</p>
+<ul>
+<li><code>:last-child</code> 选择所有的最后子元素。</li>
+<li><code>span:last-child</code> 选择所有的 <code>&lt;span&gt;</code> 元素，且该 <code>&lt;span&gt;</code> 元素为最后子元素，即在所有的最后子元素中选择所有的 <code>&lt;span&gt;</code> 元素。）</li>
+<li><code>ul li:last-child</code> 在任意 <code>&lt;ul&gt;</code> 中选择所有 <code>&lt;li&gt;</code> 元素，且该 <code>&lt;li&gt;</code> 元素为最后子元素。</li>
+</ul>
+<h4 id="第-n-子元素伪类选择器">第 N 子元素伪类选择器</h4>
+<p>选择属于其父元素的第 N 个子元素，不论元素的类型。</p>
+<blockquote>
+<p>用法：<code>:nth-child(N)</code></p>
+</blockquote>
+<p>选择父元素中第 N 个（ <code>nth</code> ，如：1st，3rd，7th，12th 等等）子元素。</p>
+<p>例如：</p>
+<ul>
+<li><code>:nth-child(8)</code> 选择父元素中每一个排第 8 的子元素。</li>
+<li><code>div p:nth-child(2)</code> 选择在每个 <code>&lt;div&gt;</code> 中的第 2 个 <code>&lt;p&gt;</code> 元素。</li>
+</ul>
+<h4 id="倒数第-n-子元素伪类选择器">倒数第 N 子元素伪类选择器</h4>
+<p>属于其元素的第 N 个子元素的每个元素，不论元素的类型，从最后一个子元素开始计数。</p>
+<blockquote>
+<p>用法：<code>:nth-last-child(N)</code></p>
+</blockquote>
+<p>在父元素中选择倒数第 N 个子元素。</p>
+<p>N 可以是数字、关键词（odd、even）或公式（An+B）。</p>
+<p>例如：</p>
+<ul>
+<li><code>:nth-last-child(2)</code> 选择所有倒数第 2 个子元素。</li>
+</ul>
+<h4 id="特定类型第一元素伪类选择器">特定类型第一元素伪类选择器</h4>
+<p>选择属于其父元素的特定类型的首个子元素的每个元素。</p>
+<blockquote>
+<p>用法：<code>:first-of-type</code></p>
+</blockquote>
+<p>在父元素中选择第一个该类型的子元素。</p>
+<p>例如：</p>
+<ul>
+<li><code>span:first-of-type</code> 在任意元素中选择第一个 <code>&lt;span&gt;</code> 元素。</li>
+</ul>
+<h4 id="第-n-元素伪类选择器">第 n 元素伪类选择器</h4>
+<p>选择属于父元素的特定类型的第 N 个子元素的每个元素。</p>
+<blockquote>
+<p>用法：<code>:nth-of-type(N)</code></p>
+</blockquote>
+<p>根据元素的类型和顺序（或该类型元素的偶数或奇数次序）选择特定子元素。</p>
+<p>例如：</p>
+<ul>
+<li><code>div:nth-of-type(2)</code> 选出第 2 个 <code>&lt;div&gt;</code> 元素。</li>
+<li><code>.example:nth-of-type(odd)</code> 在带有 <code>class=&quot;example&quot;</code> 的元素中选出<strong>奇数</strong>次序的元素。</li>
+</ul>
+<h4 id="带公式的第-n-元素伪类选择器">带公式的第 n 元素伪类选择器</h4>
+<blockquote>
+<p>用法：<code>:nth-of-type(An+B)</code></p>
+</blockquote>
+<p>按公式选择出特定次序的每个元素。</p>
+<p>n 是计数器（从 0 开始），B 是偏移值。公式 <code>An+B</code> 中 <code>n∈N</code> ，即选出第 <code>B</code>, <code>A+B</code>, <code>2×A+B</code>, <code>3×A+B</code>, <code>...</code> 项元素。</p>
+<p>例如：</p>
+<ul>
+<li><code>span:nth-of-type(6n+2)</code> 选出第 <code>6×n+2</code> 项 <code>&lt;span&gt;</code> 元素（第 <code>2</code>, <code>8</code>, <code>14</code>, <code>20</code>, <code>...</code> 项）。</li>
+</ul>
+<h4 id="类型唯一伪类选择器">类型唯一伪类选择器</h4>
+<p>选出属于其父元素的特定类型的唯一子元素的每个元素。</p>
+<blockquote>
+<p>用法：<code>:only-of-type</code></p>
+</blockquote>
+<p>例如：</p>
+<ul>
+<li><code>p span:only-of-type</code> 在任意 <code>&lt;p&gt;</code> 中选出 <code>&lt;span&gt;</code> 子元素，且该 <code>&lt;span&gt;</code> 子元素是该类型的唯一元素。</li>
+</ul>
+<h4 id="最后类型伪类选择器">最后类型伪类选择器</h4>
+<p>选出属于其父元素的特定类型的最后一个子元素的每个元素。</p>
+<blockquote>
+<p>用法：<code>:last-of-type</code></p>
+</blockquote>
+<p>类型是标签的种类，所以 <code>&lt;p&gt;</code> 和 <code>&lt;span&gt;</code> 是不同的类型。</p>
+<p>例如：</p>
+<ul>
+<li><code>div:last-of-type</code> 在每个元素中选择最后的 <code>&lt;div&gt;</code> 元素。</li>
+<li><code>p span:last-of-type</code> s在每个 <code>&lt;p&gt;</code> 元素中选择最后的 <code>&lt;span&gt;</code> 元素。</li>
+</ul>
+<h4 id="空伪类选择器">空伪类选择器</h4>
+<p>选出没有子元素（包括文本节点）的每个元素。</p>
+<blockquote>
+<p>用法：<code>:empty</code></p>
+</blockquote>
+<p>例如：</p>
+<ul>
+<li><code>div:empty</code> 选择所有空的 <code>&lt;div&gt;</code> 元素。</li>
+</ul>
+<h4 id="否定伪类选择器">否定伪类选择器</h4>
+<p>选出非指定元素/选择器的每个元素。</p>
+<blockquote>
+<p>用法：<code>:not(X)</code></p>
+</blockquote>
+<p>可以使用它来选择与选择器 <code>&quot;X&quot;</code> 不匹配的所有元素。</p>
+<p>例如：</p>
+<ul>
+<li><code>:not(#fancy)</code> 选择所有不带 <code>id=&quot;fancy&quot;</code> 的元素。</li>
+<li><code>div:not(:first-child)</code> 选择每个不是其父元素的第一子元素的 <code>&lt;div&gt;</code> 元素。</li>
+<li><code>:not(.big, .medium)</code> 选择所有不带 <code>class=&quot;big&quot;</code> 或 <code>class=&quot;medium&quot;</code> 的元素。</li>
+</ul>
+<h3 id="属性与属性值选择器">属性与属性值选择器</h3>
+<h4 id="属性选择器">属性选择器</h4>
+<p>选取带有指定属性的元素。</p>
+<blockquote>
+<p>用法：<code>[attribute]</code></p>
+</blockquote>
+<p>属性显示在元素的开始标记内，如 <code>&lt;span attribute=&quot;value&quot;&gt;</code> 。属性并不总是具有值，可以为空。</p>
+<p>例如：</p>
+<ul>
+<li><code>[type]</code> 选择所有带有 <code>type=&quot;任意属性值&quot;</code> 属性的元素。</li>
+</ul>
+<blockquote>
+<p>用法：<code>A[attribute]</code></p>
+</blockquote>
+<p>可以通过将属性选择器添加到末尾，将其与另一个选择器（例如标签名称选择器）组合起来。</p>
+<p>例如：</p>
+<ul>
+<li><code>a[href]</code> 选择所有带有 <code>&lt;href=&quot;任意属性值&quot;&gt;</code> 属性的 <code>&lt;a&gt;</code> 元素。</li>
+<li><code>input[disabled]</code> 选择所有带有 <code>disabled</code> 属性的 <code>&lt;input&gt;</code> 元素。</li>
+</ul>
+<h4 id="属性值选择器">属性值选择器</h4>
+<p>选取带有指定属性和值的元素。</p>
+<blockquote>
+<p>用法：<code>[attribute=&quot;value&quot;]</code></p>
+</blockquote>
+<p>属性选择器区分大小写，每个字符必须完全匹配。</p>
+<p>例如：</p>
+<ul>
+<li><code>input[type=&quot;checkbox&quot;]</code> 选择所有复选框输入元素。</li>
+</ul>
+<h4 id="以指定值开头的属性值选择器">以指定值开头的属性值选择器</h4>
+<p>选出属性值以指定值开头的每个元素。</p>
+<blockquote>
+<p>用法：<code>[attribute^=&quot;value&quot;]</code></p>
+</blockquote>
+<p>例如：</p>
+<ul>
+<li><code>.toy[category^=&quot;Swim&quot;]</code> 选择带有 <code>class=&quot;toy&quot;</code> 的元素并且带有 <code>category=&quot;Swimwear</code> 或 <code>category=&quot;Swimming&quot;</code> 。</li>
+</ul>
+<h4 id="以指定值结尾的属性值选择器">以指定值结尾的属性值选择器</h4>
+<p>选出属性值以指定值结尾的每个元素。</p>
+<blockquote>
+<p>用法：<code>[attribute$=&quot;value&quot;]</code></p>
+</blockquote>
+<p>例如：</p>
+<ul>
+<li><code>img[src$=&quot;.jpg&quot;]</code> 选择所有显示 <code>.jpg</code> 图片的 <code>&lt;img&gt;</code> 元素。</li>
+</ul>
+<h4 id="包含指定值的属性值选择器">包含指定值的属性值选择器</h4>
+<p>选出属性值包含指定值的每个元素。</p>
+<blockquote>
+<p>用法：<code>[attribute*=&quot;value&quot;]</code></p>
+</blockquote>
+<p>例如：</p>
+<ul>
+<li><code>img[src*=&quot;/thumbnails/&quot;]</code> 选择从 &quot;thumbnails&quot; 文件夹中显示图像的所有 <code>&lt;img&gt;</code> 元素。</li>
+<li><code>[class*=&quot;heading&quot;]</code> 选择所有类名中带有 &quot;heading&quot; 的元素，如 <code>class=&quot;main-heading&quot;</code> 和 <code>class=&quot;sub-heading&quot;</code> 。</li>
+</ul>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[合集 - 免费的素材图库]]></title>
         <id>https://hyperion-hu.github.io//post/合集 - 免费的素材图库</id>
