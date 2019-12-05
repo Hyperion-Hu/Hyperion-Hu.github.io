@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://hyperion-hu.github.io/</id>
     <title>Hyperion&apos;s Blog</title>
-    <updated>2019-12-02T14:05:06.445Z</updated>
+    <updated>2019-12-05T13:00:24.123Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://hyperion-hu.github.io/"/>
     <link rel="self" href="https://hyperion-hu.github.io//atom.xml"/>
@@ -173,8 +173,8 @@
 <p>例如：</p>
 <ul>
 <li><code>:first-child</code> 选择所有的第一子元素。</li>
-<li><code>p:first-child</code> 选择所有 <code>&lt;p&gt;</code> 元素的第一子元素。</li>
-<li><code>div p:first-child</code> 选择在 <code>&lt;div&gt;</code> 内的所有 <code>&lt;p&gt;</code> 元素的第一子元素。</li>
+<li><code>p:first-child</code> 选择所有是第一子元素的 <code>&lt;p&gt;</code> 元素。</li>
+<li><code>div p:first-child</code> 选择在 <code>&lt;div&gt;</code> 内的所有是第一子元素的 <code>&lt;p&gt;</code> 元素。</li>
 </ul>
 <h4 id="唯一子元素伪类选择器">唯一子元素伪类选择器</h4>
 <p>选择属于其父元素的唯一子元素的每个元素。</p>
