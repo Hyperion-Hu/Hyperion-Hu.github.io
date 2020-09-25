@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://hyperion-hu.github.io/</id>
     <title>Hyperion&apos;s Blog</title>
-    <updated>2020-09-25T14:26:43.412Z</updated>
+    <updated>2020-09-25T14:31:08.766Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://hyperion-hu.github.io/"/>
     <link rel="self" href="https://hyperion-hu.github.io/atom.xml"/>
@@ -11,9 +11,156 @@
     <icon>https://hyperion-hu.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, Hyperion&apos;s Blog</rights>
     <entry>
+        <title type="html"><![CDATA[Scoop - Windows 平台好用的软件包管理器]]></title>
+        <id>https://hyperion-hu.github.io/post/Scoop/</id>
+        <link href="https://hyperion-hu.github.io/post/Scoop/">
+        </link>
+        <updated>2020-09-25T14:30:16.000Z</updated>
+        <content type="html"><![CDATA[<h2 id="安装-scoop">安装 Scoop</h2>
+<h3 id="准备">准备</h3>
+<p>确保 PowerShell 能执行本地脚本</p>
+<pre><code class="language-powershell">set-executionpolicy remotesigned -scope currentuser
+</code></pre>
+<h3 id="安装">安装</h3>
+<p>打开 PowerShell，执行：</p>
+<pre><code class="language-powershell">Invoke-Expression (New-Object System.Net.WebClient).DownloadString('https://get.scoop.sh')
+</code></pre>
+<p>这将会安装在用户目录的 <code>scoop</code> 文件夹下（C:\Users\&lt;Username&gt;\scoop）</p>
+<p>若要安装至自定义目录，参阅 <a href="https://github.com/lukesampson/scoop/wiki/Quick-Start#installing-scoop-to-custom-directory" title="Scoop Wiki">Scoop Wiki</a>。</p>
+<h2 id="使用">使用</h2>
+<h3 id="搜索软件包">搜索软件包</h3>
+<pre><code class="language-powershell">scoop search &lt;软件包名&gt;
+</code></pre>
+<h3 id="查看软件包信息">查看软件包信息</h3>
+<p>软件包详情</p>
+<pre><code class="language-powershell">scoop info &lt;软件包名&gt;
+</code></pre>
+<p>软件包主页</p>
+<pre><code class="language-powershell">scoop home &lt;软件包名&gt;
+</code></pre>
+<h3 id="添加-bucket">添加 bucket</h3>
+<pre><code class="language-powershell">scoop bucket add &lt;bucket名&gt; &lt;Git仓库地址&gt;
+</code></pre>
+<p>Scoop 自带的 mian bucket 皆为无 GUI 的软件包，要添加 main bucket 中没有的软件以及带 GUI 的软件，则需要手动添加其他 bucket。</p>
+<p>添加 extras bucket</p>
+<pre><code class="language-powershell">scoop bucket add extras
+</code></pre>
+<p>添加 java bucket</p>
+<pre><code class="language-powershell">scoop bucket add java
+</code></pre>
+<h3 id="安装软件包">安装软件包</h3>
+<pre><code class="language-powershell">scoop install &lt;软件包名&gt;
+</code></pre>
+<h3 id="更新">更新</h3>
+<p>更新 Scoop</p>
+<pre><code class="language-powershell">scoop update
+</code></pre>
+<p>更新指定软件包</p>
+<pre><code class="language-powershell">scoop update &lt;软件包名&gt;
+</code></pre>
+<p>更新全部软件包</p>
+<pre><code class="language-powershell">scoop update *
+</code></pre>
+<h3 id="列出已安装软件包">列出已安装软件包</h3>
+<pre><code class="language-powershell">scoop list
+</code></pre>
+<h3 id="卸载软件包">卸载软件包</h3>
+<pre><code class="language-powershell">scoop uninstall &lt;软件包名&gt;
+</code></pre>
+<h3 id="清理">清理</h3>
+<p>删除旧版本软件包</p>
+<pre><code class="language-powershell">scoop cleanup
+</code></pre>
+<p>删除缓存</p>
+<pre><code class="language-powershell">scoop cache rm *
+</code></pre>
+<h3 id="更多帮助">更多帮助</h3>
+<pre><code class="language-powershell">scoop help
+</code></pre>
+<p>以及 <a href="https://github.com/lukesampson/scoop/wiki/" title="Scoop Wiki">Scoop Wiki</a></p>
+<h2 id="示例-安装-java-环境">示例 - 安装 Java 环境</h2>
+<ol>
+<li>
+<p>首先添加 java bucket，若已添加则忽略这步</p>
+<pre><code class="language-powershell">scoop bucket add java
+</code></pre>
+</li>
+<li>
+<p>搜索可用的 JDK</p>
+<pre><code class="language-powershell">scoop search jdk
+</code></pre>
+<p>搜索结果：</p>
+<pre><code>'java' bucket:
+    adoptopenjdk-hotspot-jre (15-36)
+    adoptopenjdk-hotspot (15-36)
+    adoptopenjdk-lts-hotspot-jre (11.0.8-10)
+    adoptopenjdk-lts-hotspot (11.0.8-10)
+    adoptopenjdk-lts-openj9-jre (11.0.8-10-0.21.0)
+    adoptopenjdk-lts-openj9-xl-jre (11.0.8-10-0.21.0)
+    adoptopenjdk-lts-openj9-xl (11.0.8-10-0.21.0)
+    adoptopenjdk-lts-openj9 (11.0.8-10-0.21.0)
+    adoptopenjdk-lts-upstream-jre (11.0.8-10)
+    adoptopenjdk-lts-upstream (11.0.8-10)
+    adoptopenjdk-openj9-jre (15-36-0.22.0)
+    adoptopenjdk-openj9-xl-jre (15-36-0.22.0)
+    adoptopenjdk-openj9-xl (15-36-0.22.0)
+    adoptopenjdk-openj9 (15-36-0.22.0)
+    ojdkbuild-full (14.0.2.12-1)
+    ojdkbuild (14.0.2.12-1)
+    ojdkbuild10-full (10.0.2-1.b13)
+    ojdkbuild10 (10.0.2-1.b13)
+    ojdkbuild11-full (11.0.8.10-1)
+    ojdkbuild11 (11.0.8.10-1)
+    ojdkbuild12-full (12.0.2.9-1)
+    ojdkbuild12 (12.0.2.9-1)
+    ojdkbuild13-full (13.0.3.3-1)
+    ojdkbuild13 (13.0.3.3-1)
+    ojdkbuild14-full (14.0.2.12-1)
+    ojdkbuild14 (14.0.2.12-1)
+    ojdkbuild8-full (1.8.0.265-1.b01)
+    ojdkbuild8 (1.8.0.265-1.b01)
+    ojdkbuild9-full (9.0.4-1.b11)
+    ojdkbuild9 (9.0.4-1.b11)
+    openjdk-ea (15-36)
+    openjdk (14.0.2-12)
+    openjdk10 (10.0.2-13)
+    openjdk11 (11.0.2-9)
+    openjdk12 (12.0.2-10)
+    openjdk13 (13.0.2-8)
+    openjdk14 (14.0.2-12)
+    openjdk15 (15-36)
+    openjdk7-unofficial (7u80-b32)
+    openjdk9 (9.0.4-12)
+    oraclejdk (14.0.2-12)
+    oraclejdk14 (14.0.2-12)
+</code></pre>
+</li>
+<li>
+<p>安装偏好的版本，此处以 Oracle JDK 为例</p>
+<pre><code class="language-powershell">scoop install oraclejdk
+</code></pre>
+</li>
+<li>
+<p>测试 Java</p>
+<pre><code class="language-powershell">java -version
+</code></pre>
+<p>展示当前 Java 安装路径</p>
+<pre><code class="language-powershell">scoop which java
+</code></pre>
+</li>
+<li>
+<p>在多个 Java 版本中切换</p>
+<pre><code class="language-powershell">scoop reset &lt;Java 软件包名&gt;
+</code></pre>
+<p>帮助：<a href="https://github.com/lukesampson/scoop/wiki/Java" title="Scoop Wiki / Java">Scoop Wiki / Java</a></p>
+</li>
+</ol>
+]]></content>
+    </entry>
+    <entry>
         <title type="html"><![CDATA[学习笔记 - CSS 选择器]]></title>
-        <id>https://hyperion-hu.github.io/post/xue-xi-bi-ji-css-xuan-ze-qi/</id>
-        <link href="https://hyperion-hu.github.io/post/xue-xi-bi-ji-css-xuan-ze-qi/">
+        <id>https://hyperion-hu.github.io/post/CSS-选择器/</id>
+        <link href="https://hyperion-hu.github.io/post/CSS-选择器/">
         </link>
         <updated>2019-11-22T07:55:55.000Z</updated>
         <content type="html"><![CDATA[<h2 id="css-语法">CSS 语法</h2>
@@ -354,8 +501,8 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[合集 - 免费的素材图库]]></title>
-        <id>https://hyperion-hu.github.io/post/he-ji-mian-fei-de-su-cai-tu-ku/</id>
-        <link href="https://hyperion-hu.github.io/post/he-ji-mian-fei-de-su-cai-tu-ku/">
+        <id>https://hyperion-hu.github.io/post/免费图库/</id>
+        <link href="https://hyperion-hu.github.io/post/免费图库/">
         </link>
         <updated>2019-11-15T07:52:38.000Z</updated>
         <content type="html"><![CDATA[<h2 id="版权与许可">📃版权与许可</h2>
@@ -542,8 +689,8 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[在校师生才能享有的各类优惠]]></title>
-        <id>https://hyperion-hu.github.io/post/zai-xiao-shi-sheng-cai-neng-xiang-you-de-ge-lei-you-hui/</id>
-        <link href="https://hyperion-hu.github.io/post/zai-xiao-shi-sheng-cai-neng-xiang-you-de-ge-lei-you-hui/">
+        <id>https://hyperion-hu.github.io/post/教育优惠/</id>
+        <link href="https://hyperion-hu.github.io/post/教育优惠/">
         </link>
         <updated>2019-10-04T13:14:12.000Z</updated>
         <content type="html"><![CDATA[<p>如果你是一位<u>在校<strong>大学生</strong></u>或<u><strong>教职工</strong></u>，有相关<strong>证件</strong>且拥有学校分配的<strong>教育邮箱</strong>，那么你就能去享受大量的教育优惠。这些优惠是一些公司在教育领域所特别推出的特殊优惠，通常是以可观的<strong>折扣</strong>甚至是以<strong>免费</strong>的授权提供。</p>
@@ -806,8 +953,8 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[起源]]></title>
-        <id>https://hyperion-hu.github.io/post/qi-yuan/</id>
-        <link href="https://hyperion-hu.github.io/post/qi-yuan/">
+        <id>https://hyperion-hu.github.io/post/hello/</id>
+        <link href="https://hyperion-hu.github.io/post/hello/">
         </link>
         <updated>2019-09-28T13:00:00.000Z</updated>
         <content type="html"><![CDATA[<p>尝试使用 <a href="https://gridea.dev/">Gridea</a> 创作。这是一篇测试博客。<br>
