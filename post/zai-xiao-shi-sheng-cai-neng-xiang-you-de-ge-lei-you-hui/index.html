@@ -9,10 +9,16 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-<link rel="shortcut icon" href="https://hyperion-hu.github.io//favicon.ico?v=1575550820514">
+<link rel="shortcut icon" href="https://hyperion-hu.github.io//favicon.ico?v=1601043017344">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
 <link rel="stylesheet" href="https://hyperion-hu.github.io//styles/main.css">
 
+
+  
+
+  
+    <link rel="stylesheet" href="https://unpkg.com/disqusjs@1.1/dist/disqusjs.css" />
+  
 
 
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
@@ -30,7 +36,7 @@
   <div class="top-container" data-aos="fade-right">
     <div class="top-header-container">
       <a class="site-title-container" href="https://hyperion-hu.github.io/">
-        <img src="https://hyperion-hu.github.io//images/avatar.png?v=1575550820514" class="site-logo">
+        <img src="https://hyperion-hu.github.io//images/avatar.png?v=1601043017344" class="site-logo">
         <h1 class="site-title">Hyperion&#39;s Blog</h1>
       </a>
       <div class="menu-btn" @click="menuVisible = !menuVisible">
@@ -369,11 +375,11 @@ ICP 备吧啦吧啦号 | <a class="rss" href="https://hyperion-hu.github.io//ato
             
               <div class="tag-container">
                 
-                  <a href="https://hyperion-hu.github.io//tag/you-hui" class="tag">
+                  <a href="https://hyperion-hu.github.io/tag/you-hui/" class="tag">
                     优惠
                   </a>
                 
-                  <a href="https://hyperion-hu.github.io//tag/ying-yong" class="tag">
+                  <a href="https://hyperion-hu.github.io/tag/ying-yong/" class="tag">
                     应用
                   </a>
                 
@@ -382,7 +388,7 @@ ICP 备吧啦吧啦号 | <a class="rss" href="https://hyperion-hu.github.io//ato
             
               <div class="next-post">
                 <div class="next">下一篇</div>
-                <a href="https://hyperion-hu.github.io//post/qi-yuan">
+                <a href="https://hyperion-hu.github.io/post/qi-yuan/">
                   <h3 class="post-title">
                     起源
                   </h3>
@@ -390,6 +396,12 @@ ICP 备吧啦吧啦号 | <a class="rss" href="https://hyperion-hu.github.io//ato
               </div>
             
 
+            
+              
+
+              
+                <div id="disqus_thread" data-aos="fade-in"></div>
+              
             
 
           </div>
@@ -414,6 +426,26 @@ var app = new Vue({
 })
 
 </script>
+
+
+
+  
+
+  
+    <script src="https://unpkg.com/disqusjs@1.1/dist/disqus.js"></script>
+    <script>
+
+    var options = {
+      shortname: 'hyperion-hu',
+      apikey: 'B60Z7V8fi8rMWS3h7GSJK6eU7JVXPoSTKh5kEFTLhznNzcRgTrq6pu6xI5NSwB9X',
+    }
+    if ('https://disqus.skk.moe/disqus/') {
+      options.api = 'https://disqus.skk.moe/disqus/'
+    }
+    var dsqjs = new DisqusJS(options)
+
+    </script>
+  
 
 
 
